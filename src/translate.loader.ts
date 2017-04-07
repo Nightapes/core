@@ -1,8 +1,8 @@
-import {Observable} from "rxjs/Observable";
-import {Injectable} from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
 
 export abstract class TranslateLoader {
-    abstract getTranslation(lang: string): Observable<any>;
+    abstract getTranslation(lang: string, type?: string): Observable<any>;
 }
 
 /**
@@ -10,7 +10,7 @@ export abstract class TranslateLoader {
  */
 @Injectable()
 export class TranslateFakeLoader extends TranslateLoader {
-    getTranslation(lang: string): Observable<any> {
+    getTranslation(lang: string, type: string): Observable<any> {
         return Observable.of({});
     }
 }

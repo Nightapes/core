@@ -3,10 +3,14 @@ import {TestBed, getTestBed} from "@angular/core/testing";
 import {TranslateService, TranslateModule, TranslateLoader} from "../index";
 import {Observable} from "rxjs/Observable";
 
-let translations: any = {"TEST": "This is a test"};
+let mainTranslations: any = {"TEST": "This is a test"};
+let secondTranslations: any = {"TEST": "This is a second test"};
 class FakeLoader implements TranslateLoader {
-    getTranslation(lang: string): Observable<any> {
-        return Observable.of(translations);
+    getTranslation(lang: string, type: string): Observable<any> {
+        if(type) {
+            return Observable.of(secondTranslations);
+        }
+        return Observable.of(mainTranslations);
     }
 }
 

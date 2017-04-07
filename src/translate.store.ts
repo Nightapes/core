@@ -26,6 +26,12 @@ export class TranslateStore {
     public langs: Array<string> = [];
 
     /**
+     * an array of prefixes
+     * @type {Array}
+     */
+    public prefixes: Array<string> = [];
+
+    /**
      * An EventEmitter to listen to translation change events
      * onTranslationChange.subscribe((params: TranslationChangeEvent) => {
      *     // do something
